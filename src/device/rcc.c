@@ -1,5 +1,9 @@
 #include "stm32f1xx.h"
 
+#include "device/rcc.h"
+
+volatile uint32_t rcc_ms_ticks = 0;
+
 void rcc_config(void)
 {
     /*
@@ -39,4 +43,27 @@ void rcc_config(void)
 
     /* Switch System Clock to PLL */
     MODIFY_REG(RCC->CFGR, RCC_CFGR_SW, RCC_CFGR_SW_PLL);
+
+    /* Update the SystemCoreClock global var */
+    SystemCoreClockUpdate();
+
+    /* SysTick 1ms tick enable */
+    SysTick_Config(SystemCoreClock/1000);
+}
+
+void SysTick_Handler(void)
+{
+      /* Increment counter necessary in delay_ms()*/
+      rcc_ms_ticks++;
+}
+
+/* Uses the SysTick Timer to generate an accurate time delay */
+void delay_ms(uint32_t ms)
+{
+    uint32_t curr_ticks;
+
+    curr_ticks = rcc_ms_ticks;
+
+    /* Wait */
+    while((rcc_ms_ticks - curr_ticks) < ms);
 }
