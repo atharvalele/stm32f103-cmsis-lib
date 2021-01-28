@@ -34,6 +34,10 @@ uint16_t sw_fifo_read(struct sw_fifo_t *fifo, char *buf, uint16_t num_bytes)
             /* Increment buffer pointer and FIFO tail */
             temp_ptr++;
             fifo->tail++;
+            /* Wrap around */
+            if (fifo->tail == fifo->size) {
+                fifo->tail = 0;
+            }
         } else {
             /* No more data to read */
             return bytes_read;
@@ -62,6 +66,10 @@ uint16_t sw_fifo_write(struct sw_fifo_t *fifo, char *buf, uint16_t num_bytes)
             /* Increment head and buffer ptr */
             temp_ptr++;
             fifo->head++;
+            /* Wrap around */
+            if (fifo->head == fifo->size) {
+                fifo->head = 0;
+            }
         }
     }
     /* We wrote all the bytes */
