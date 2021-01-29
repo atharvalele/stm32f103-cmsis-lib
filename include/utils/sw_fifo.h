@@ -16,3 +16,4 @@ struct sw_fifo_t {
 void sw_fifo_init(struct sw_fifo_t *fifo, char *buf, uint16_t size);
 uint16_t sw_fifo_read(struct sw_fifo_t *fifo, char *buf, uint16_t num_bytes);
 uint16_t sw_fifo_write(struct sw_fifo_t *fifo, char *buf, uint16_t num_bytes);
+uint16_t sw_fifo_get_free_space(struct sw_fifo_t *fifo);
