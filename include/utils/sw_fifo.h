@@ -1,3 +1,6 @@
+#ifndef _SW_FIFO_H
+#define _SW_FIFO_H
+
 /*
  * Generic FIFO implementation
  */
@@ -17,3 +20,5 @@ void sw_fifo_init(struct sw_fifo_t *fifo, char *buf, uint16_t size);
 uint16_t sw_fifo_read(struct sw_fifo_t *fifo, char *buf, uint16_t num_bytes);
 uint16_t sw_fifo_write(struct sw_fifo_t *fifo, char *buf, uint16_t num_bytes);
 uint16_t sw_fifo_get_free_space(struct sw_fifo_t *fifo);
+
+#endif

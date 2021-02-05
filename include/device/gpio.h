@@ -1,3 +1,6 @@
+#ifndef _GPIO_H_
+#define _GPIO_H_
+
 /* GPIO Pin definitions */
 #define GPIO0		(1 << 0)
 #define GPIO1		(1 << 1)
@@ -48,3 +51,5 @@ void gpio_mode_set(GPIO_TypeDef *port, uint16_t pins, uint8_t mode, uint8_t pupd
 void gpio_output_options_set(GPIO_TypeDef *port, uint16_t pins, uint8_t otype_sett);
 void gpio_set(GPIO_TypeDef *port, uint16_t pins);
 void gpio_clear(GPIO_TypeDef *port, uint16_t pins);
+
+#endif
