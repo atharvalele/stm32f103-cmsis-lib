@@ -10,11 +10,11 @@ void gpio_config()
     /* Set output as Push pull */
     gpio_output_options_set(GPIOC, GPIO13, GPIO_CNF_PUSH_PULL);
 
-    /* Setup for GPIO */
+    /* Setup for USART1 */
     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_IOPAEN);
-    gpio_mode_set(GPIOA, GPIO3, GPIO_INPUT, GPIO_CNF_FLOATING);
-    gpio_mode_set(GPIOA, GPIO2, GPIO_OUTPUT_50MHz, GPIO_CNF_PUSH_PULL);
-    gpio_output_options_set(GPIOA, GPIO2, GPIO_CNF_PUSH_PULL);
+    gpio_mode_set(GPIOA, GPIO10, GPIO_INPUT, GPIO_CNF_FLOATING);
+    gpio_mode_set(GPIOA, GPIO9, GPIO_OUTPUT_50MHz, GPIO_CNF_PUSH_PULL);
+    gpio_output_options_set(GPIOA, GPIO9, GPIO_CNF_AF_PUSH_PULL);
 }
 
 /* Toggle All GPIO pins passed as an argument */
