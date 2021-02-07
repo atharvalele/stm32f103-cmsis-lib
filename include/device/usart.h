@@ -9,7 +9,7 @@
 /* Define USARTx_ENABLED to have access to FIFO buffers
  * and interrupts
  */
-#define USART2_ENABLED
+#define USART1_ENABLED
 
 #ifdef USART1_ENABLED
 extern struct sw_fifo_t usart1_tx_fifo;
