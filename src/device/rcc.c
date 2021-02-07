@@ -2,6 +2,8 @@
 
 #include "device/rcc.h"
 
+volatile uint8_t secflag = 1;
+volatile uint16_t ms_ticks;
 volatile uint32_t rcc_ms_ticks = 0;
 
 void rcc_config(void)
@@ -53,8 +55,15 @@ void rcc_config(void)
 
 void SysTick_Handler(void)
 {
-      /* Increment counter necessary in delay_ms()*/
-      rcc_ms_ticks++;
+    /* Increment counter necessary in delay_ms()*/
+    rcc_ms_ticks++;
+
+    /* One second tick counter */
+    ms_ticks++;
+    if (ms_ticks >= 1000) {
+        secflag = 1;
+        ms_ticks = 0;
+    }
 }
 
 /* Uses the SysTick Timer to generate an accurate time delay */
