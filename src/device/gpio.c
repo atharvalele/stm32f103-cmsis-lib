@@ -49,7 +49,7 @@ void gpio_mode_set(GPIO_TypeDef *port, uint16_t pins, uint8_t mode, uint8_t pupd
         moder |= GPIO_SETT(i, mode);
         if (mode == 0x00) {
             moder &= ~GPIO_CNF_SETT_MASK(i);
-            moder |= GPIO_SETT(i, pupd_sett);
+            moder |= GPIO_CNF_SETT(i, pupd_sett);
         }
 
     }
