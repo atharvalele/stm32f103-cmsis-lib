@@ -20,6 +20,10 @@
 #define GPIO15		(1 << 15)
 #define GPIO_ALL	0xFFFF
 
+/* Useful Port and Pin Definitions */
+#define STATUS_LED_PORT GPIOC
+#define STATUS_LED_PIN  GPIO13
+
 /* GPIO Port Configuration */
 /* Input Mode MODE[1:0] = 00 */
 #define GPIO_CNF_ANALOG         0x00

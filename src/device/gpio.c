@@ -6,9 +6,9 @@ void gpio_config()
     /* Enbale Clock */
     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_IOPCEN);
     /* Set pin 13 as output with speed 2 MHz */
-    gpio_mode_set(GPIOC, GPIO13, GPIO_OUTPUT_2MHz, GPIO_CNF_PUSH_PULL);
+    gpio_mode_set(STATUS_LED_PORT, STATUS_LED_PIN, GPIO_OUTPUT_2MHz, GPIO_CNF_PUSH_PULL);
     /* Set output as Push pull */
-    gpio_output_options_set(GPIOC, GPIO13, GPIO_CNF_PUSH_PULL);
+    gpio_output_options_set(STATUS_LED_PORT, STATUS_LED_PIN, GPIO_CNF_PUSH_PULL);
 
     /* Setup for USART1 */
     SET_BIT(RCC->APB2ENR, RCC_APB2ENR_IOPAEN);
