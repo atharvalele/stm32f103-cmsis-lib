@@ -15,6 +15,9 @@ void gpio_config()
     gpio_mode_set(GPIOA, GPIO10, GPIO_INPUT, GPIO_CNF_FLOATING);
     gpio_mode_set(GPIOA, GPIO9, GPIO_OUTPUT_50MHz, GPIO_CNF_PUSH_PULL);
     gpio_output_options_set(GPIOA, GPIO9, GPIO_CNF_AF_PUSH_PULL);
+
+    /* Setup for I2C1 */
+    SET_BIT(RCC->APB2ENR, RCC_APB2ENR_IOPBEN);
 }
 
 /* Toggle All GPIO pins passed as an argument */
